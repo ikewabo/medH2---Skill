@@ -58,7 +58,7 @@ export default function Home() {
           poster="/assets/hero-bg.png"
           preload="auto"
         >
-          <source src="/assets/hero-bg-video.mp4" type="video/mp4" />
+          <source src="/assets/heroA.mp4" type="video/mp4" />
         </video>
 
         <div className="content">
@@ -164,7 +164,7 @@ export default function Home() {
           className="about-video-bg"
           preload="metadata"
         >
-          <source src="/assets/Medical_team_transports_patient_202606081753.mp4" type="video/mp4" />
+          <source src="/assets/Medical_team_transports_patient_202606141908.mp4" type="video/mp4" />
         </video>
         <div className="about-video-overlay"></div>
 
