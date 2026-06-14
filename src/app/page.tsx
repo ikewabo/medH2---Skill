@@ -63,13 +63,14 @@ export default function Home() {
 
         <div className="content">
           <h1 id="hero-title">Care Without Borders</h1>
+          <div className="hero-underline"></div>
           <p className="subhead">
             Personalized medical concierge support connecting patients to trusted specialists, coordinated treatment, and compassionate care across Switzerland and Spain.
           </p>
           
           <div className="hero-actions">
             <a
-              className="pill-btn"
+              className="hero-btn primary"
               href="#appointment"
               onClick={(e) => {
                 e.preventDefault();
@@ -77,19 +78,22 @@ export default function Home() {
               }}
             >
               <span>Book Appointment</span>
-              <span className="arrow" aria-hidden="true">
-                ↗
+              <span className="btn-arrow" aria-hidden="true">
+                →
               </span>
             </a>
             <a
-              className="secondary-btn"
+              className="hero-btn secondary"
               href="#services"
               onClick={(e) => {
                 e.preventDefault();
                 handleScrollToSection("services");
               }}
             >
-              Our Services
+              <span>Our Services</span>
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
             </a>
           </div>
         </div>
@@ -117,39 +121,51 @@ export default function Home() {
         <section className="benefits" id="services" aria-label="Key service benefits">
           <article className="benefit">
             <div className="icon-circle" aria-hidden="true">
-              ⚕
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" className="benefit-svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+              </svg>
             </div>
-            <div>
+            <div className="benefit-content">
               <strong>Specialist Network</strong>
               <span>Access to leading European specialists and clinics</span>
             </div>
+            <span className="benefit-chevron" aria-hidden="true">›</span>
           </article>
           <article className="benefit">
             <div className="icon-circle" aria-hidden="true">
-              ▣
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" className="benefit-svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375C2.754 3.75 2.25 4.254 2.25 4.875v1.5c0 .621.504 1.125 1.125 1.125ZM9 3.75h6v-1.5H9v1.5Z" />
+              </svg>
             </div>
-            <div>
+            <div className="benefit-content">
               <strong>Travel Support</strong>
               <span>Seamless travel & stay arrangements</span>
             </div>
+            <span className="benefit-chevron" aria-hidden="true">›</span>
           </article>
           <article className="benefit">
             <div className="icon-circle" aria-hidden="true">
-              ♡
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" className="benefit-svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
             </div>
-            <div>
+            <div className="benefit-content">
               <strong>Personalized Care</strong>
               <span>Tailored treatment plans just for you</span>
             </div>
+            <span className="benefit-chevron" aria-hidden="true">›</span>
           </article>
           <article className="benefit">
             <div className="icon-circle" aria-hidden="true">
-              ✚
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" className="benefit-svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12-3.75c0 5.592-3.824 10.29-9 11.623-5.176-1.332-9-6.03-9-11.622 0-1.31.21-2.571.598-3.751A11.959 11.959 0 0 1 12 2.714c4.326 0 8.243 2.296 10.402 5.736Z" />
+              </svg>
             </div>
-            <div>
+            <div className="benefit-content">
               <strong>Post-Treatment Guidance</strong>
-              <span>Ongoing support for your lasting recovery</span>
+              <span>Ongoing support for your recovery</span>
             </div>
+            <span className="benefit-chevron" aria-hidden="true">›</span>
           </article>
         </section>
       </section>
