@@ -3,7 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import Script from "next/script";
+import HelpWidget from "@/components/HelpWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,8 +33,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
-        <elevenlabs-convai agent-id="agent_3701ktrmmn5rfycr5rpsj3d61s6g"></elevenlabs-convai>
-        <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" strategy="afterInteractive" />
+        <HelpWidget />
       </body>
     </html>
   );
