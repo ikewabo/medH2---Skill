@@ -1,0 +1,19 @@
+# This file specifies files and directories to ignore when deploying to Google Cloud.
+
+# Git configuration
+.git
+.gitignore
+
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+
+# Local env files
+.env*.local
+
+# Logs and system files
+*.log
+.DS_Store
+Thumbs.db
