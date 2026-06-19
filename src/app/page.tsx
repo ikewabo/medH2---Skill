@@ -191,24 +191,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {/* ---------------------------------------------------- */}
-      {/* CTA Booking Section */}
-      {/* ---------------------------------------------------- */}
-      <section className="section" style={{ background: "linear-gradient(135deg, #0a192f 0%, #172a45 100%)", color: "#fff", textAlign: "center" }}>
-        <div className="container" style={{ padding: "40px 0" }}>
-          <h2 style={{ fontFamily: "var(--font-playfair), serif", fontSize: "2.8rem", color: "#fff", marginBottom: "20px" }}>
-            Begin Your Coordinated Care Program
-          </h2>
-          <p style={{ color: "#a0aec0", maxWidth: "600px", margin: "0 auto 40px", fontSize: "1.1rem", lineHeight: "1.7" }}>
-            Schedule an assessment with our coordinators. We respond within 24 hours to begin mapping your personal health roadmap.
-          </p>
-          <Link href="/appointment" className="pill-btn" style={{ background: "var(--accent)", color: "var(--navy)", border: "none" }}>
-            <span>Book Consultation Now</span>
-            <span className="arrow">↗</span>
-          </Link>
-        </div>
-      </section>
     </main>
   );
 }

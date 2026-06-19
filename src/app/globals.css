@@ -2035,17 +2035,8 @@ h1 {
     gap: 20px;
   }
   
-  .doctors-grid .doctor-card {
-    flex-direction: column-reverse !important;
-  }
-  
-  .doctors-grid .doctor-image-wrap {
-    width: 100% !important;
-    height: 250px !important;
-  }
-  
-  .doctors-grid .doctor-info-wrap {
-    padding: 24px !important;
+  .mobile-hide {
+    display: none !important;
   }
 }
 

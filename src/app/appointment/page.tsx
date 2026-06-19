@@ -28,38 +28,38 @@ export default function AppointmentPage() {
   };
 
   return (
-    <main style={{ paddingTop: "120px", paddingBottom: "100px", minHeight: "100vh", background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)", color: "#fff" }}>
-      <div className="container relative-z">
+    <main style={{ paddingTop: "120px", paddingBottom: "100px", minHeight: "100vh" }}>
+      <div className="container">
         {/* Section Header */}
         <div className="section-title-wrap" style={{ textAlign: "center", marginBottom: "50px" }}>
           <div className="eyebrow" style={{ justifyContent: "center" }}>
             <span className="shield">✓</span> Consultation Scheduling
           </div>
-          <h1 className="section-title" style={{ color: "#fff", fontSize: "3.2rem", fontFamily: "var(--font-playfair), serif" }}>
+          <h1 className="section-title" style={{ fontSize: "3.2rem", fontFamily: "var(--font-playfair), serif", color: "var(--navy)" }}>
             Schedule a Consultation
           </h1>
-          <p className="section-desc" style={{ color: "#a0aec0", margin: "20px auto 0", maxWidth: "700px" }}>
+          <p className="section-desc" style={{ margin: "20px auto 0", maxWidth: "700px" }}>
             Provide your details below to connect with Dr. Bikye or Emmanuel Nebeolisa.
             Our care coordination desk will respond to your request within 24 hours.
           </p>
         </div>
 
         <div className="appointment-container" style={{ maxWidth: "750px", margin: "0 auto" }}>
-          <div className="glass-card" style={{ border: "1px solid rgba(255, 255, 255, 0.1)", background: "rgba(255, 255, 255, 0.03)", padding: "40px", borderRadius: "16px" }}>
+          <div className="glass-card">
             {formSubmitted ? (
               <div className="form-success" role="alert" style={{ textAlign: "center", padding: "20px 0" }}>
                 <div className="form-success-icon" aria-hidden="true" style={{ width: "60px", height: "60px", background: "rgba(74, 222, 128, 0.1)", color: "#4ade80", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", fontSize: "2rem", fontWeight: "bold" }}>
                   ✓
                 </div>
-                <h3 style={{ fontFamily: "var(--font-playfair), serif", fontSize: "2rem", color: "#fff", marginBottom: "15px" }}>
+                <h3 style={{ fontFamily: "var(--font-playfair), serif", fontSize: "2rem", color: "var(--navy)", marginBottom: "15px" }}>
                   Consultation Request Received
                 </h3>
-                <p style={{ color: "#cbd5e0", maxWidth: "500px", margin: "0 auto 25px", lineHeight: "1.6", fontSize: "1rem" }}>
+                <p style={{ color: "var(--muted)", maxWidth: "500px", margin: "0 auto 25px", lineHeight: "1.6", fontSize: "1rem" }}>
                   Thank you for reaching out, {formData.firstName}. One of our senior coordinators will contact you via email ({formData.email}) or phone shortly to discuss your healthcare goals.
                 </p>
                 <button
                   className="pill-btn"
-                  style={{ border: "none", cursor: "pointer" }}
+                  style={{ border: "none", cursor: "pointer", display: "inline-flex", margin: "0 auto" }}
                   onClick={() => {
                     setFormSubmitted(false);
                     setFormData({
@@ -79,7 +79,7 @@ export default function AppointmentPage() {
               <form className="appointment-form" onSubmit={handleFormSubmit}>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="firstName" style={{ color: "#e2e8f0", fontWeight: "500", display: "block", marginBottom: "8px" }}>First Name</label>
+                    <label htmlFor="firstName">First Name</label>
                     <input
                       type="text"
                       id="firstName"
@@ -88,11 +88,10 @@ export default function AppointmentPage() {
                       placeholder="Your first name"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      style={{ width: "100%", padding: "12px 16px", background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.15)", borderRadius: "8px", color: "#fff" }}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="lastName" style={{ color: "#e2e8f0", fontWeight: "500", display: "block", marginBottom: "8px" }}>Last Name</label>
+                    <label htmlFor="lastName">Last Name</label>
                     <input
                       type="text"
                       id="lastName"
@@ -101,14 +100,13 @@ export default function AppointmentPage() {
                       placeholder="Your last name"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      style={{ width: "100%", padding: "12px 16px", background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.15)", borderRadius: "8px", color: "#fff" }}
                     />
                   </div>
                 </div>
 
-                <div className="form-row" style={{ marginTop: "20px" }}>
+                <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="email" style={{ color: "#e2e8f0", fontWeight: "500", display: "block", marginBottom: "8px" }}>Email Address</label>
+                    <label htmlFor="email">Email Address</label>
                     <input
                       type="email"
                       id="email"
@@ -117,11 +115,10 @@ export default function AppointmentPage() {
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={handleInputChange}
-                      style={{ width: "100%", padding: "12px 16px", background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.15)", borderRadius: "8px", color: "#fff" }}
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="phone" style={{ color: "#e2e8f0", fontWeight: "500", display: "block", marginBottom: "8px" }}>Phone Number</label>
+                    <label htmlFor="phone">Phone Number</label>
                     <input
                       type="tel"
                       id="phone"
@@ -130,20 +127,18 @@ export default function AppointmentPage() {
                       placeholder="+00 000 000 000"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      style={{ width: "100%", padding: "12px 16px", background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.15)", borderRadius: "8px", color: "#fff" }}
                     />
                   </div>
                 </div>
 
-                <div className="form-group" style={{ marginTop: "20px" }}>
-                  <label htmlFor="service" style={{ color: "#e2e8f0", fontWeight: "500", display: "block", marginBottom: "8px" }}>Service of Interest</label>
+                <div className="form-group">
+                  <label htmlFor="service">Service of Interest</label>
                   <select
                     id="service"
                     name="service"
                     required
                     value={formData.service}
                     onChange={handleInputChange}
-                    style={{ width: "100%", padding: "12px 16px", background: "rgba(15, 23, 42, 0.8)", border: "1px solid rgba(255, 255, 255, 0.15)", borderRadius: "8px", color: "#fff" }}
                   >
                     <option value="">Select a service...</option>
                     <option value="consultation">Consultation & Case Assessment</option>
@@ -153,8 +148,8 @@ export default function AppointmentPage() {
                   </select>
                 </div>
 
-                <div className="form-group" style={{ marginTop: "20px" }}>
-                  <label htmlFor="message" style={{ color: "#e2e8f0", fontWeight: "500", display: "block", marginBottom: "8px" }}>How can we assist you?</label>
+                <div className="form-group">
+                  <label htmlFor="message">How can we assist you?</label>
                   <textarea
                     id="message"
                     name="message"
@@ -162,11 +157,10 @@ export default function AppointmentPage() {
                     placeholder="Describe your medical inquiries, target timelines, or specific clinical goals..."
                     value={formData.message}
                     onChange={handleInputChange}
-                    style={{ width: "100%", height: "120px", padding: "12px 16px", background: "rgba(255, 255, 255, 0.05)", border: "1px solid rgba(255, 255, 255, 0.15)", borderRadius: "8px", color: "#fff", resize: "vertical" }}
                   ></textarea>
                 </div>
 
-                <div className="form-submit-wrap" style={{ marginTop: "30px", display: "flex", justifyContent: "flex-end" }}>
+                <div className="form-submit-wrap">
                   <button type="submit" className="pill-btn" style={{ border: "none", cursor: "pointer" }}>
                     <span>Submit Inquiry</span>
                     <span className="arrow" aria-hidden="true">
