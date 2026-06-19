@@ -2001,5 +2001,54 @@ h1 {
   }
 }
 
+/* ---------------------------------------------------- */
+/* Multi-page & Mobile Responsiveness Optimizations */
+/* ---------------------------------------------------- */
+
+.teaser-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 40px 0;
+}
+
+@media (max-width: 991px) {
+  .teaser-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+  .teaser-grid .hero-btn {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .about-benefits-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  
+  .doctors-grid .doctor-card {
+    flex-direction: column-reverse !important;
+  }
+  
+  .doctors-grid .doctor-image-wrap {
+    width: 100% !important;
+    height: 250px !important;
+  }
+  
+  .doctors-grid .doctor-info-wrap {
+    padding: 24px !important;
+  }
+}
+
+
 
 

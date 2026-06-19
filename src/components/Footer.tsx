@@ -1,16 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
-  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <footer className="footer-section">
       {/* Background Video */}
@@ -32,12 +25,12 @@ export default function Footer() {
           {/* Left Column: Brand Info */}
           <div className="footer-column footer-col-left">
             <div className="footer-logo-wrap">
-              <a className="footer-brand" href="#home" onClick={handleLogoClick} aria-label="MedHcare Swiss home">
+              <Link className="footer-brand" href="/" aria-label="MedHcare Swiss home">
                 <span className="brand-mark" aria-hidden="true"></span>
                 <span className="brand-text">
                   MEDHCARE <span>SWISS</span>
                 </span>
-              </a>
+              </Link>
             </div>
             
             {/* Divider with gold cross */}

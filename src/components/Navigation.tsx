@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
 
   // Prevent background scroll when mobile menu is open
   useEffect(() => {
@@ -19,6 +21,11 @@ export default function Navigation() {
     };
   }, [isMobileMenuOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 60);
@@ -28,113 +35,57 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Update active section based on scroll position using Intersection Observer
-  useEffect(() => {
-    const sections = ["home", "about", "doctors", "appointment"];
-    const observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -60% 0px", // Trigger when section occupies the main view area
-      threshold: 0.1,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      sections.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) observer.unobserve(el);
-      });
-    };
-  }, []);
-
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      // Offset for sticky navigation bar
-      const navOffset = 90;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-      setActiveSection(targetId);
-      
-      // Update browser history hash
-      window.history.pushState(null, "", `#${targetId}`);
+  const isActive = (path: string) => {
+    if (path === "/") {
+      return pathname === "/";
     }
+    return pathname.startsWith(path);
   };
 
   return (
     <header className={`nav-wrapper ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav" aria-label="Primary navigation">
-        <a className="brand" href="#home" onClick={(e) => handleLinkClick(e, "home")} aria-label="MedHcare Swiss home">
+        <Link className="brand" href="/" aria-label="MedHcare Swiss home">
           <span className="brand-mark" aria-hidden="true"></span>
           <span className="brand-text">
             MEDHCARE <span>SWISS</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="menu" aria-label="Main menu">
-          <a
-            href="#home"
-            className={activeSection === "home" ? "active" : ""}
-            onClick={(e) => handleLinkClick(e, "home")}
+          <Link
+            href="/"
+            className={isActive("/") ? "active" : ""}
           >
             Home
-          </a>
-          <a
-            href="#about"
-            className={activeSection === "about" ? "active" : ""}
-            onClick={(e) => handleLinkClick(e, "about")}
+          </Link>
+          <Link
+            href="/about"
+            className={isActive("/about") ? "active" : ""}
           >
             About Us
-          </a>
-          <a
-            href="#doctors"
-            className={activeSection === "doctors" ? "active" : ""}
-            onClick={(e) => handleLinkClick(e, "doctors")}
+          </Link>
+          <Link
+            href="/doctors"
+            className={isActive("/doctors") ? "active" : ""}
           >
-            Doctors
-          </a>
-          <a
-            href="#appointment"
-            className={activeSection === "appointment" ? "active" : ""}
-            onClick={(e) => handleLinkClick(e, "appointment")}
+            Coordinators
+          </Link>
+          <Link
+            href="/appointment"
+            className={isActive("/appointment") ? "active" : ""}
           >
             Appointment
-          </a>
-
+          </Link>
         </nav>
 
         <div className="nav-cta">
-          <a
-            className="pill-btn"
-            href="#appointment"
-            onClick={(e) => handleLinkClick(e, "appointment")}
-          >
+          <Link className="pill-btn" href="/appointment">
             <span>Book Consultation</span>
             <span className="arrow" aria-hidden="true">
               ↗
             </span>
-          </a>
+          </Link>
         </div>
 
         <button
@@ -152,30 +103,29 @@ export default function Navigation() {
       {/* Mobile Nav Overlay */}
       <div className={`mobile-nav-overlay ${isMobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-nav-links">
-          <a href="#home" onClick={(e) => handleLinkClick(e, "home")}>
+          <Link href="/">
             Home
-          </a>
-          <a href="#about" onClick={(e) => handleLinkClick(e, "about")}>
+          </Link>
+          <Link href="/about">
             About Us
-          </a>
-          <a href="#doctors" onClick={(e) => handleLinkClick(e, "doctors")}>
-            Doctors
-          </a>
-          <a href="#appointment" onClick={(e) => handleLinkClick(e, "appointment")}>
+          </Link>
+          <Link href="/doctors">
+            Coordinators
+          </Link>
+          <Link href="/appointment">
             Appointment
-          </a>
+          </Link>
 
-          <a
+          <Link
             className="pill-btn"
             style={{ marginTop: "20px" }}
-            href="#appointment"
-            onClick={(e) => handleLinkClick(e, "appointment")}
+            href="/appointment"
           >
             <span>Book Consultation</span>
             <span className="arrow" aria-hidden="true">
               ↗
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>
