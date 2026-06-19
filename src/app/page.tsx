@@ -143,52 +143,76 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------- */}
-      {/* Team / Coordinators Teaser Section */}
+      {/* Team / Coordinators Section */}
       {/* ---------------------------------------------------- */}
-      <section className="section" style={{ background: "#f0f6fa" }}>
-        <div className="container" style={{ textAlign: "center" }}>
-          <div className="section-title-wrap">
+      <section className="section" style={{ background: "#f0f6fa" }} id="doctors">
+        <div className="container">
+          <div className="section-title-wrap" style={{ textAlign: "center" }}>
             <div className="eyebrow" style={{ justifyContent: "center" }}>
               <span className="shield">✓</span> Leadership Team
             </div>
             <h2 className="section-title" style={{ fontFamily: "var(--font-playfair), serif" }}>
               Our Distinguished Coordinators
             </h2>
-            <p className="section-desc" style={{ margin: "20px auto 30px", maxWidth: "650px" }}>
+            <p className="section-desc" style={{ margin: "20px auto 40px", maxWidth: "650px" }}>
               Our medical programs are led by public health experts dedicated to arranging seamless treatment programs.
             </p>
           </div>
 
-          <div style={{ display: "flex", gap: "30px", justifyContent: "center", flexWrap: "wrap", marginBottom: "40px" }}>
-            <div className="glass-card" style={{ padding: "30px", background: "#fff", border: "1px solid rgba(0,0,0,0.03)", borderRadius: "12px", width: "320px", textAlign: "left" }}>
-              <h3 style={{ fontFamily: "var(--font-playfair), serif", color: "var(--navy)", fontSize: "1.4rem", marginBottom: "5px" }}>
-                Dr. Therese Diane Bikye
-              </h3>
-              <p style={{ color: "var(--accent)", fontSize: "0.85rem", fontWeight: "600", textTransform: "uppercase", marginBottom: "15px" }}>
-                European Coordinator & VP
-              </p>
-              <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: "1.6" }}>
-                Swiss-trained practitioner specializing in custom medical assessments.
-              </p>
-            </div>
+          <div className="doctors-grid" style={{ maxWidth: "860px", margin: "0 auto 40px" }}>
+            <article className="glass-card doctor-card">
+              <div className="doctor-info-wrap">
+                <div className="doctor-header-flat">
+                  <span className="doctor-role">European Coordinator & VP</span>
+                  <h3 className="doctor-name">Dr. Therese Diane Bikye</h3>
+                  <span className="doctor-credentials">Swiss-Trained Medical Practitioner</span>
+                </div>
+                <p className="doctor-bio">
+                  Dr. Bikye brings elite Swiss clinical standards and empathy-driven coordination to international healthcare programs.
+                  <span className="mobile-hide"> Specializing in designing custom medical roadmaps, she orchestrates pre-consultation assessments and clinic selections.</span>
+                </p>
+              </div>
+              <div className="doctor-image-wrap">
+                <Image
+                  src="/assets/therese_bikye.png"
+                  alt="Dr. Therese Diane Bikye"
+                  className="doctor-image"
+                  width={220}
+                  height={220}
+                />
+              </div>
+            </article>
 
-            <div className="glass-card" style={{ padding: "30px", background: "#fff", border: "1px solid rgba(0,0,0,0.03)", borderRadius: "12px", width: "320px", textAlign: "left" }}>
-              <h3 style={{ fontFamily: "var(--font-playfair), serif", color: "var(--navy)", fontSize: "1.4rem", marginBottom: "5px" }}>
-                Emmanuel I. Nebeolisa
-              </h3>
-              <p style={{ color: "var(--accent)", fontSize: "0.85rem", fontWeight: "600", textTransform: "uppercase", marginBottom: "15px" }}>
-                Managing Director & COO
-              </p>
-              <p style={{ color: "var(--muted)", fontSize: "0.95rem", lineHeight: "1.6" }}>
-                Spanish-trained consultant managing European healthcare logistics.
-              </p>
-            </div>
+            <article className="glass-card doctor-card">
+              <div className="doctor-info-wrap">
+                <div className="doctor-header-flat">
+                  <span className="doctor-role">Managing Director & COO</span>
+                  <h3 className="doctor-name">Emmanuel I. Nebeolisa</h3>
+                  <span className="doctor-credentials">Spanish-Trained Public Healthcare Consultant</span>
+                </div>
+                <p className="doctor-bio">
+                  An expert in European healthcare systems, concierge travel networks, and treatment scheduling.
+                  <span className="mobile-hide"> Emmanuel manages client relations, luxury accommodation logistics, translation services, and post-operative support.</span>
+                </p>
+              </div>
+              <div className="doctor-image-wrap">
+                <Image
+                  src="/assets/emmanuel_nebeolisa.png"
+                  alt="Emmanuel I. Nebeolisa"
+                  className="doctor-image"
+                  width={220}
+                  height={220}
+                />
+              </div>
+            </article>
           </div>
 
-          <Link href="/doctors" className="hero-btn secondary">
-            <span>Meet Our Team</span>
-            <span className="btn-arrow">→</span>
-          </Link>
+          <div style={{ textAlign: "center" }}>
+            <Link href="/doctors" className="hero-btn secondary">
+              <span>Meet Our Team</span>
+              <span className="btn-arrow">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
